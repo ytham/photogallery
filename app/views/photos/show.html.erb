@@ -1,8 +1,8 @@
 <h1>
-  <%= photo_namer(@photo.title) %>
+  <%= remove_underscores(@photo.name) %>
 </h1>
 <div>
-  <%= link_to image_tag(@photo.title) %>
+  <%= image_tag(add_extension(@photo.name)) %>
 </div>
 <p>
   <%= @photo.caption %>
