@@ -24,6 +24,10 @@ class PhotosController < ApplicationController
     end
   end
   
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def destroy
     @photo = Photo.find(params[:id])
     @photo.destroy

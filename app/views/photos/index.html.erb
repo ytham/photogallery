@@ -1,0 +1,9 @@
+<h1>
+  All Photos
+</h1>
+
+<% @photos.each do |photo| %>
+  <p>
+    <%= link_to remove_underscores(photo.name), photo %>
+  </p>
+<% end %>
