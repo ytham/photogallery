@@ -1,16 +1,37 @@
 @import "bootstrap";
 
-$darkBackground: #111111;
+$darkBackground: #222222;
+$borderLine: #004466;
+$mainText: #dddddd;
+$linkColor: #0099cc;
+$linkHoverColor: #ffffff;
+$logoText: #999999;
+$darkText: #555555;
 
 /* universal */
 
 html {
   overflow-y: scroll;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  padding-top: 40px;
+  margin: 0;
+  padding: 0;
+  padding-top: 0px;
+  background-color: #000000;
+  color: $mainText;
   text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: $linkColor;
+  &:hover {
+    text-decoration: none;
+    color: $linkHoverColor;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22,9 +43,88 @@ h1 {
   font-weight: 100; 
   letter-spacing: -1.5px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin: 5px 0px 10px 0px;
+}
+
+h2 {
+  font-size: 3em;
+  font-weight: 100;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
 }
 
 .center {
   text-align: center;
+}
+
+/* header */
+
+#logo { 
+  float: left;
+  position: absolute;
+  margin-left: 50px;
+  margin-top: 22px;
+  font-size: 4em;
+  font-weight: 100;
+  letter-spacing: -3px;
+  line-height: 1;
+  color: $logoText;
+  a {
+    color: $logoText;
+  }
+}
+
+header {
+  text-align: right;
+  padding: 0px 50px 0px 0px;
+  margin: 0px 0px 20px 0px;
+  height: 70px;
+  background-color: $darkBackground;
+  border-bottom: medium solid $borderLine;
+  ul {
+    margin-top: 50px;
+    float: right;
+    list-style: none;
+    li {
+      display: inline-block;
+      font-size: 1.7em;
+      font-weight: 100;
+      letter-spacing: -0.5px;
+      line-height: 1;
+      padding: 0px 15px 0px 15px;
+      margin: 0px 5px 0px 5px;
+    }
+  }
+}
+
+nav {
+  padding: 40px 0px 0px 0px;
+  margin: 0px 0px 20px 0px;
+  height: 10px;
+  background-color: #ffccaa;
+  border-bottom: medium solid #00aaff;
+}
+
+
+/* footer */
+
+footer {
+  margin: 30px 0px 30px 0px;
+  padding: 20px;
+  color: $darkText;
+  border-top: medium solid $borderLine;
+  background-color: $darkBackground;
+}
+
+
+/* main content */
+
+#photonav {
+  ul {
+    list-style: none;
+    li {
+      margin: 0px 15px 0px 15px;
+      display: inline-block;
+    }
+  }
 }

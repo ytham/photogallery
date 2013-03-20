@@ -2,8 +2,14 @@
   All Photos
 </h1>
 
-<% @photos.each do |photo| %>
-  <p>
-    <%= link_to remove_underscores(photo.name), photo %>
-  </p>
-<% end %>
+<div id="photonav">
+  <ul>
+    <% @photos.each do |photo| %>
+      <li><%= link_to remove_underscores(photo.name), photo %></li>
+    <% end %>
+  </ul>
+</div>
+
+<%= image_tag(add_extension(@photos.first.name)) %>
+
+
