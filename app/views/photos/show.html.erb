@@ -1,9 +1,27 @@
 <h1>
   <%= remove_underscores(@photo.name) %>
 </h1>
-<div>
-  <%= image_tag(add_extension(@photo.name)) %>
-</div>
+<main>
+  <% if @photo.previous != nil %>
+    <%= link_to(@photo.previous) do %>
+      <div id="leftfixed">
+        <div id="leftarrow">
+          Previous
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @photo.next != nil %>
+    <%= link_to(@photo.next) do %>
+      <div id="rightfixed">
+        <div id="rightarrow">
+          Next
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <%= image_tag(add_extension(@photo.name)) %>  
+</main>
 <p>
   <%= @photo.caption %>
 </p>
