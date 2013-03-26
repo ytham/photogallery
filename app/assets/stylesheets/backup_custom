@@ -74,31 +74,24 @@ h2 {
 }
 
 header {
-  position: relative;
+  text-align: right;
   padding: 0px 50px 0px 70px;
-  margin: 0px 0px 20px 0px; 
+  margin: 0px 0px 20px 0px;
   height: 70px;
-  background: $darkBackground;
+  background-color: $darkBackground;
   border-bottom: medium solid $borderLine;
   ul {
+    margin-top: 50px;
+    float: right;
     list-style: none;
-    position: absolute;
-    right: 50px;
-    bottom: -14px;
-    span {
-      margin: 0px 3px 0px 3px;
-      height: 20px;
-      background: $borderLine;
-      li {
-        display: inline;
-        vertical-align: bottom;
-        font-size: 1.7em;
-        font-weight: 100;
-        letter-spacing: -0.5px;
-        line-height: 1;
-        padding: 0px 15px 0px 15px;
-        margin: 0px 5px 0px 5px;
-      }
+    li {
+      display: inline-block;
+      font-size: 1.7em;
+      font-weight: 100;
+      letter-spacing: -0.5px;
+      line-height: 1;
+      padding: 0px 15px 0px 15px;
+      margin: 0px 5px 0px 5px;
     }
   }
 }
