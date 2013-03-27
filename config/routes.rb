@@ -1,7 +1,13 @@
 Photogallery::Application.routes.draw do
   resources :photos
+  resources :users
+  resources :sessions
+
   root to: 'photos#index'
 
+  match '/login', to: 'sessions#new'
+  match '/logout', to: 'sessions#destroy'
+  match '/signup', to: 'users#new'
   match '/about', to: 'static_pages#about'
   match '/links', to: 'static_pages#links'
   match '/contact', to: 'static_pages#contact'

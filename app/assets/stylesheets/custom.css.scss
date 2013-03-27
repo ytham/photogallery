@@ -8,6 +8,14 @@ $linkHoverColor: #ffffff;
 $logoText: #999999;
 $darkText: #555555;
 
+$successText: #AACCAA;
+$successBorder: #006600;
+$successBackground: #002200;
+$errorText: #CCAAAA;
+$errorBorder: #660000;
+$errorBackground: #220000;
+$errorBackgroundList: #2A0000;
+
 /* universal */
 
 html {
@@ -22,6 +30,7 @@ body {
   padding-top: 0px;
   background-color: #000000;
   color: $mainText;
+  font-weight: 200;
   text-align: center;
 }
 
@@ -131,6 +140,10 @@ main {
   padding: 0px;
 }
 
+ul {
+  list-style: none;
+}
+
 #photonav {
   ul {
     list-style: none;
@@ -177,3 +190,34 @@ main {
   opacity: 0.5;
   margin: 0px 0px 100px 0px;
 }
+
+
+/* flash messages */
+
+#success_messages {
+  display: block;
+  color: $successText;
+  border: 1px;
+  border-color: $successBorder;
+  background-color: $successBackground;
+}
+
+#error_messages {
+  display: block;
+  width: 500;
+  color: $errorText;
+  border: 1px;
+  border-color: $errorBorder;
+  background-color: $errorBackground;
+  h3 {
+    font-weight: 200;
+    color: $errorText;
+  }
+  ul {
+    list-style: none;
+    li {
+      background-color: $errorBackgroundList;
+    }
+  }
+}
+

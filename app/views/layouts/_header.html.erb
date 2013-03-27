@@ -6,7 +6,11 @@
     <%= link_to about_path do %><span><li>About</li></span><% end %>
     <%= link_to links_path do %><span><li>Links</li></span><% end %>
     <%= link_to contact_path do %><span><li>Contact</li></span><% end %>
-    <%= link_to '#' do %><span><li>Log In</li></span><% end %>
+    <% if current_user %>
+      <%= link_to '#' do %><span><li><%= current_user.name %></li></span> <% end %>
+    <% else %>
+      <%= link_to login_path do %><span><li>Log In</li></span><% end %>
+    <% end %>
   </ul>
 </header>
 
