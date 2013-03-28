@@ -7,6 +7,7 @@ $linkColor: #0099cc;
 $linkHoverColor: #ffffff;
 $logoText: #999999;
 $darkText: #555555;
+$arrowBackground: #444444;
 
 $successText: #AACCAA;
 $successBorder: #006600;
@@ -169,26 +170,36 @@ ul {
 }
 
 #leftarrow {
-  float: left;
-  width: 100px;
-  height: 300px;
-  vertical-align: middle;
+  width: 80px;
+  height: 150px;
+  font-size: 8em;
+  font-weight: 100;
+  line-height: 1;
   position: absolute;
-  background: #555555;
-  opacity: 0.5;
+  background: $arrowBackground;
+  //opacity: 0.5;
+  padding-top: 15px;
   margin: 0px 0px 100px 0px;
 }
 
 #rightarrow {
-  width: 100px;
-  height: 300px;
+  width: 80px;
+  height: 150px;
+  font-size: 8em;
+  font-weight: 100;
+  line-height: 1;
   vertical-align: middle;
   position: absolute;
   right: 0px;
   top: 0px;
-  background: #555555;
-  opacity: 0.5;
+  background: $arrowBackground;
+  //opacity: 0.5;
+  padding-top: 15px;
   margin: 0px 0px 100px 0px;
+}
+
+#captionarea { 
+  margin: 15px 0px 20px 0px;
 }
 
 

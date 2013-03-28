@@ -1,3 +1,4 @@
+<% provide(:title, make_title(@photo.name)) %>
 <h1>
   <%= remove_underscores(@photo.name) %>
 </h1>
@@ -6,7 +7,7 @@
     <%= link_to(@photo.previous) do %>
       <div id="leftfixed">
         <div id="leftarrow">
-          Previous
+          &lt;
         </div>
       </div>
     <% end %>
@@ -15,15 +16,18 @@
     <%= link_to(@photo.next) do %>
       <div id="rightfixed">
         <div id="rightarrow">
-          Next
+          &gt;
         </div>
       </div>
     <% end %>
   <% end %>
   <%= image_tag(add_extension(@photo.name)) %>  
 </main>
-<p>
+<div id="captionarea">
+  <% if @photo.user != nil %>
+    Submitted by <%= link_to @photo.user.name, @photo.user %><br />
+  <% end %>
   <%= @photo.caption %>
-</p>
+</div>
 
 
