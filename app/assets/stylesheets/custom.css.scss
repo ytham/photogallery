@@ -44,6 +44,15 @@ a {
   }
 }
 
+ul {
+  list-style: none;
+  li {
+    padding: 3px 0;
+    margin: 3px 0;
+    text-indent: 0px;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
 }
@@ -141,8 +150,10 @@ main {
   padding: 0px;
 }
 
-ul {
-  list-style: none;
+#mainSection {
+  display: block;
+  margin: 0px;
+  padding: 0px;
 }
 
 #photonav {
@@ -159,17 +170,17 @@ ul {
   position: fixed;
 }
 
-#leftfixed { 
+.leftfixed { 
   position: fixed;
   left: 0px;
 }
 
-#rightfixed {
+.rightfixed {
   position: fixed;
   right: 0px;
 }
 
-#leftarrow {
+.leftarrow {
   width: 80px;
   height: 150px;
   font-size: 8em;
@@ -182,7 +193,7 @@ ul {
   margin: 0px 0px 100px 0px;
 }
 
-#rightarrow {
+.rightarrow {
   width: 80px;
   height: 150px;
   font-size: 8em;
@@ -198,10 +209,14 @@ ul {
   margin: 0px 0px 100px 0px;
 }
 
-#captionarea { 
+.captionarea { 
   margin: 15px 0px 20px 0px;
 }
 
+.links {
+  text-align: left;
+  display: inline-block;
+}
 
 /* flash messages */
 
@@ -228,6 +243,8 @@ ul {
     list-style: none;
     li {
       background-color: $errorBackgroundList;
+      margin: 3px 0;
+      padding: 3px 0;
     }
   }
 }

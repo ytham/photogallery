@@ -1,0 +1,30 @@
+<h1>
+  <%= @photo.id %> : <%= remove_underscores(@photo.name) %>
+</h1>
+  <% if @photo.next != nil %>
+    <%= link_to @photo.next, class: "leftclick", remote: true do %>
+      <div class="leftfixed">
+        <div class="leftarrow">
+          &lt;
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @photo.previous != nil %>
+    <%= link_to @photo.previous, class: "rightclick", remote: true do %>
+      <div class="rightfixed">
+        <div class="rightarrow">
+          &gt;
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  
+  <%= image_tag(add_extension(@photo.name), id: "galleryimage")  %>
+  
+  <div class="captionarea">
+    <% if @photo.user != nil %>
+      Submitted by <%= link_to @photo.user.name, @photo.user %><br />
+    <% end %>
+    <%= @photo.caption %>
+  </div>

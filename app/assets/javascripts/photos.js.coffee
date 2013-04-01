@@ -8,13 +8,20 @@ $(document).ready ->
     $(this).fadeTo("fast",1)
   ), ->
     $(this).fadeTo("slow",0.6)
+
   $("#leftarrow").fadeTo("slow",0.5)
   $("#leftarrow").hover (->
     $(this).fadeTo("fast",1)
   ), ->
     $(this).fadeTo("slow",0.5)
+
   $("#rightarrow").fadeTo("slow",0.5) 
   $("#rightarrow").hover (->
     $(this).fadeTo("fast",1)
   ), ->
     $(this).fadeTo("slow",0.5)
+
+  #$("#leftarrow").click ->
+  #  $("main").fadeOut "fast"
+  #$("#rightarrow").click ->
+  #  $("main").fadeOut "fast"
