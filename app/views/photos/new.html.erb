@@ -1,0 +1,12 @@
+<% provide(:title, 'Upload Photo') %>
+<h1>
+  Upload Photo
+</h1>
+
+<% if current_user %>
+  <%= render 'upload' %>
+<% else %>
+  Only members may upload photos.  Please 
+  <%= link_to 'log in', login_path %> or
+  <%= link_to 'create a new account', signup_path %>.
+<% end %>

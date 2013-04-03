@@ -1,19 +1,26 @@
 <% provide(:title, @user.name) %>
-<h1>
-  <%= @user.name %>
-</h1>
+<main>
+<div class="user_title">
+  <div class="user_avatar">
+    <%= image_tag show_avatar %>
+      <% if current_user == @user %>
+        <div class="user_avatar_overlay">
+          Change User Info<br />
+          <%= link_to 'Upload an Avatar', user_upload_avatar_path(@user) %><br /> 
+          <%= link_to 'Upload a Photo', new_photo_path %><br />
+          <%= link_to 'Logout', logout_path %>
+        </div>
+      <% end %>
+  </div>
+  <div class="user_info">
+    <h1><%= @user.name %></h1>
+    Number of Followers: <span class="followers_number">0</span><br />
+    Number of Photos: <span class="photos_number"><%= @photo_list.count %></span><br />
+    Number of Likes: <span class="likes_number">0</span><br />
+  </div>
+</div>
+ 
+<h2>Submitted Photos:</h2>
+<%= render 'users_photos' %>
 
-Submitted Photos:
-<% if @photo_list != nil %>
-  <ul>
-    <% @photo_list.each do |p| %>
-      <li><%= link_to remove_underscores(p.name), p %></li>
-    <% end %>
-  </ul>
-<% else %>
-  No photos.
-<% end %>
-
-<% if current_user == @user %>
-  <p><%= link_to 'Log Out', logout_path %></p>
-<% end %>
+</main>

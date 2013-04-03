@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def full_title(page_title)
-    main_title = "Photo Gallery"
+    main_title = "'steemed"
     if page_title.empty?
       main_title
     else

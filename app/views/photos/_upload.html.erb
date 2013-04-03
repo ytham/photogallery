@@ -1,0 +1,31 @@
+<%= form_for @photo, html: { multipart: true } do |f| %>
+  <% if @photo.errors.any? %>
+    <div id="error_messages">
+      <h3>The following errors were detected:</h3>
+      <ul>
+        <% for message in @photo.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <div class="upload_field">
+      <%= f.file_field :image %><br />
+      <h3>or</h3> 
+      <%= f.label :remote_image_url, 'image URL' %>
+      <%= f.text_field :remote_image_url %>
+    </div>
+  </p>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :caption %>
+    <%= f.text_area :caption %>
+  <p>
+    <%= f.submit "Upload Photo" %>
+  </p>
+<% end %>

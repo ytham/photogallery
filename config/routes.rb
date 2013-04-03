@@ -3,11 +3,18 @@ Photogallery::Application.routes.draw do
   resources :users
   resources :sessions
 
+  resources :users do
+    get 'upload_avatar'
+  end
+
   root to: 'photos#index'
 
   match '/login', to: 'sessions#new'
   match '/logout', to: 'sessions#destroy'
   match '/signup', to: 'users#new'
+  match '/upload', to: 'photos#new'
+#  match '/upload_avatar', to: 'users#upload_avatar'
+  match '/all', to: 'photos#all'
   match '/about', to: 'static_pages#about'
   match '/links', to: 'static_pages#links'
   match '/contact', to: 'static_pages#contact'

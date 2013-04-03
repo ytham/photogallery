@@ -1,0 +1,18 @@
+<% if @photo.next != nil %>
+  <%= link_to @photo.next, class: "leftclick" do %>
+    <div class="leftfixed">
+      <div class="leftarrow">
+        &lt;
+      </div>
+    </div>
+  <% end %>
+<% end %>
+<% if @photo.previous != nil %>
+  <%= link_to @photo.previous, class: "rightclick" do %>
+    <div class="rightfixed">
+      <div class="rightarrow">
+        &gt;
+      </div>
+    </div>
+  <% end %>
+<% end %>

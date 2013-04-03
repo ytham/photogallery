@@ -27,4 +27,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def upload_avatar
+    @user = current_user
+    respond_to do |format|
+      format.html
+      format.json { render json: @user }
+    end
+  end
+
+  def update
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      redirect_to @user, notice: "User data updated successfully."
+    else
+      render @user, notice: "Avatar upload failed."
+    end
+  end
+  
+  def destroy
+    # Need to implement
+  end
+
 end

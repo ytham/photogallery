@@ -1,0 +1,20 @@
+<% if !@photo_list.blank? %>
+  <% @photo_list.reverse.each do |p| %>
+    <span class="<%= dom_id(p) %>">
+      <span class="show_all">
+        <%= link_to p do %>
+          <%= image_tag p.image_url(:thumb) %>
+        <% end %>
+        <% if current_user == @user %>
+          <%= link_to p, method: :delete, class: 'delete_post' do %>
+            <div class="delete_overlay">
+              x
+            </div>
+          <% end %>
+        <% end %>
+      </span>
+    </span>  
+  <% end %>
+<% else %>
+  No photos.
+<% end %>

@@ -1,2 +1,6 @@
-<% @photo = @photos.last %>
-<%= render file: '/photos/show' %>
+<% if !@photos.blank? %>
+  <% @photo = @photos.last %>
+  <%= render file: 'photos/show' %>
+<% else %>
+  No Photos
+<% end %>

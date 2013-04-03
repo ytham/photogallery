@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation, :avatar
 
-  has_many :photos
+  has_many :photos, dependent: :destroy 
+
+  mount_uploader :avatar, AvatarUploader
 
   attr_accessor :password
   before_save :encrypt_password
@@ -26,4 +28,5 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+ 
 end

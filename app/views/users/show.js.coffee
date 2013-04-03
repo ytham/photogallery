@@ -1,0 +1,1 @@
+$(this).closest("span").fadeOut("fast")

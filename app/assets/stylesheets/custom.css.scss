@@ -9,10 +9,15 @@ $logoText: #999999;
 $darkText: #555555;
 $arrowBackground: #444444;
 
+$formField: #112233;
+$formFieldBorder: #223344;
+$formFileUpload: #001122;
+$formFileUploadBorder: #112233;
+
 $successText: #AACCAA;
 $successBorder: #006600;
 $successBackground: #002200;
-$errorText: #CCAAAA;
+$errorText: #EECCCC;
 $errorBorder: #660000;
 $errorBackground: #220000;
 $errorBackgroundList: #2A0000;
@@ -66,10 +71,25 @@ h1 {
 }
 
 h2 {
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 100;
   letter-spacing: -1.5px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
+}
+
+input[type="text"], input[type="submit"], input[type="password"], textarea {
+  color: #ffffff;
+  background-color: $formField;
+  border: 2px solid;
+  border-color: $formFieldBorder;
+}
+
+input[type="text"], input[type="password"], textarea {
+  width: 350px;
+}
+
+textarea {
+  height: 100px;
 }
 
 .center {
@@ -89,6 +109,9 @@ h2 {
   color: $logoText;
   a {
     color: $logoText;
+  }
+  img {
+    margin: -30px 0 0 0;
   }
 }
 
@@ -130,11 +153,10 @@ nav {
   border-bottom: medium solid #00aaff;
 }
 
-
 /* footer */
 
 footer {
-  margin: 30px 0px 30px 0px;
+  margin: 30px 0px 0px 0px;
   padding: 20px;
   color: $darkText;
   border-top: medium solid $borderLine;
@@ -154,6 +176,26 @@ main {
   display: block;
   margin: 0px;
   padding: 0px;
+}
+
+.show_all {
+  display: inline-block;
+  margin: 10px;
+  .delete_overlay {
+    display: none;
+  }
+  &:hover .delete_overlay {
+    position: absolute;
+    display: block;
+    background: #440000;
+    height: 19px;
+    width: 19px;
+    opacity: 0.6;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    margin: -29px 0 0 131px;
+  }
 }
 
 #photonav {
@@ -213,9 +255,73 @@ main {
   margin: 15px 0px 20px 0px;
 }
 
+.caption_text {
+  margin-top: 20px;
+}
+
 .links {
   text-align: left;
   display: inline-block;
+}
+
+/* user view */
+
+.user_title {
+  display: inline-block;
+  padding: 10px;
+  .user_avatar {
+    display: inline-block;
+    float: left;
+    margin: 10px;
+    .user_avatar_overlay {
+      display: none;
+    }
+    &:hover .user_avatar_overlay {
+      position: absolute;
+      display: block;
+      background: #000000;
+      height: 140px;
+      width: 140px;
+      opacity: 0.75;
+      text-align: left;
+      font-size: 1.25em;
+      line-height: 1.5em;
+      padding: 10px;
+      margin: -162px 0 0 -2px;
+      border: 2px solid;
+      border-color: #ffffff;
+    }
+  }
+  .user_info {
+    text-align: left;
+    float: left;
+    padding: 0px;
+  }
+}
+
+/* quicknav */
+
+.quicknav {
+  .quicknav_image {
+  margin: 5px;
+  }
+  .grayscale {
+    filter: gray;
+    -webkit-filter: grayscale(100%);
+  }
+}
+
+/* forms */
+
+.upload_field {
+  display: inline-block;
+  align: center;
+  width: 400px;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid;
+  border-color: $formFileUploadBorder;
+  background-color: $formFileUpload;
 }
 
 /* flash messages */
@@ -223,7 +329,7 @@ main {
 #success_messages {
   display: block;
   color: $successText;
-  border: 1px;
+  border: 1px solid;
   border-color: $successBorder;
   background-color: $successBackground;
 }
@@ -232,7 +338,7 @@ main {
   display: block;
   width: 500;
   color: $errorText;
-  border: 1px;
+  border: 1px solid;
   border-color: $errorBorder;
   background-color: $errorBackground;
   h3 {

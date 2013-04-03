@@ -1,0 +1,11 @@
+<%= provide(:title, 'All Photos') %>
+
+<% @photos.reverse.each do |p| %>
+  <span class="<%= dom_id(p) %>">
+    <span class="show_all">
+      <%= link_to p do %>
+        <%= image_tag p.image_url(:thumb) %> 
+      <% end %>
+    </span>
+  </span>
+<% end %>

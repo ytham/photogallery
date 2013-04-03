@@ -1,0 +1,17 @@
+<%= form_for @user, html: { multipart: true } do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_messages">
+      <h3>The following errors were detected:</h3>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.file_field :avatar %>
+  </p>
+  <%= f.submit "Upload Avatar" %>
+<% end %>
