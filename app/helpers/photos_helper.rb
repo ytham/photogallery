@@ -34,7 +34,7 @@ module PhotosHelper
         nav_array += Photo.find(:all, conditions: ["id < ?", @photo.id], order: "id desc", limit: 2)
       end  
     else
-      nav_array = @photos
+      nav_array = @photos.reverse
     end
     #nav_array.order("id desc")
   end

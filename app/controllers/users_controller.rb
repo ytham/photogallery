@@ -35,12 +35,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def update
     @user = current_user
     if @user.update_attributes(params[:user])
       redirect_to @user, notice: "User data updated successfully."
     else
-      render @user, notice: "Avatar upload failed."
+      render @user, notice: "User data update failed."
     end
   end
   

@@ -1,10 +1,15 @@
-<% if @photo.user != nil %>
-  Submitted by 
-  <%= link_to @photo.user do %>
-    <%= image_tag show_avatar_thumb %> 
-    <%= @photo.user.name %>
-  <% end %><br />
+<% if !@photo.caption.blank? %>
+  <div class="caption_text">
+    <%= @photo.caption %>
+  </div>
+  <hr>
 <% end %>
-<span class="caption_text">
-  <%= @photo.caption %>
-</span>
+<% if @photo.user != nil %>
+  <div class="caption_subtext">
+    Submitted by<br />
+    <%= link_to @photo.user do %>
+      <%= image_tag show_avatar_thumb %> 
+      <%= @photo.user.name %>
+    <% end %>
+  </div>
+<% end %>

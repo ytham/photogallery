@@ -1,0 +1,28 @@
+<% provide(:title, 'Update User Info') %>
+<h1>
+	Update User Info
+</h1>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_messages">
+      <h3>Form has the following errors:</h3>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </p>
+
+  <p class="button"><%= f.submit %></p>
+<% end %>

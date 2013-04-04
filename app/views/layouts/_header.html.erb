@@ -6,13 +6,12 @@
   </div>
   <ul>
     <%= link_to about_path do %><span class="nav_elem"><li>About</li></span><% end %>
-    <%= link_to links_path do %><span class="nav_elem"><li>Links</li></span><% end %>
     <%= link_to all_path do %><span class="nav_elem"><li>Photos</li></span><% end %>
     <%= link_to upload_path do %><span class="nav_elem"><li>Upload</li></span><% end %>
     <% if current_user %>
       <%= link_to user_path(current_user.id) do %><span class="nav_elem"><li><%= current_user.name %></li></span> <% end %>
     <% else %>
-      <%= link_to login_path do %><span><li>Log In</li></span><% end %>
+      <%= link_to login_path do %><span class="nav_elem"><li>Log In</li></span><% end %>
     <% end %>
   </ul>
 </header>

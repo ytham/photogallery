@@ -8,13 +8,19 @@ $linkHoverColor: #ffffff;
 $logoText: #999999;
 $darkText: #555555;
 $arrowBackground: #444444;
+$divider: #222222;
+
+$captionBackground: #161616;
+$captionBorder: #222222;
+$captionMainText: #cccccc;
+$captionSubText: #777777;
 
 $formField: #112233;
 $formFieldBorder: #223344;
 $formFileUpload: #001122;
 $formFileUploadBorder: #112233;
 
-$successText: #AACCAA;
+$successText: #aaccaa;
 $successBorder: #006600;
 $successBackground: #002200;
 $errorText: #EECCCC;
@@ -28,12 +34,14 @@ html {
   overflow-y: scroll;
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 body {
   margin: 0;
   padding: 0;
   padding-top: 0px;
+  height: 100%;
   background-color: #000000;
   color: $mainText;
   font-weight: 200;
@@ -155,12 +163,18 @@ nav {
 
 /* footer */
 
+.pushdown, footer {
+  height: 70px;
+}
+
 footer {
-  margin: 30px 0px 0px 0px;
-  padding: 20px;
+  margin: 0px 0px 0px 0px;
   color: $darkText;
   border-top: medium solid $borderLine;
   background-color: $darkBackground;
+  p {
+    padding-top: 12px;
+  }
 }
 
 
@@ -168,8 +182,11 @@ footer {
 
 main {
   display: block;
-  margin: 0px;
+  margin: 0 0 -70px 0;
   padding: 0px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
 }
 
 #mainSection {
@@ -252,11 +269,29 @@ main {
 }
 
 .captionarea { 
-  margin: 15px 0px 20px 0px;
+  display: inline-block;
+  margin: 20px;
+  padding: 10px;
+  background: $captionBackground;
+  border: 2px solid $captionBorder;
+  color: $captionSubText;
+  hr {
+    border: 0;
+    margin: 12px auto 8px auto;
+    height: 2px;
+    width: 40%;
+    color: $divider;
+    background-color: $divider;
+  }
 }
 
 .caption_text {
-  margin-top: 20px;
+  display: inline-block;
+  font-size: 1.9em;
+  font-weight: 100;
+  line-height: 1em;
+  margin: 5px 60px 0px 60px;
+  color: $captionMainText;
 }
 
 .links {
@@ -273,10 +308,16 @@ main {
     display: inline-block;
     float: left;
     margin: 10px;
-    .user_avatar_overlay {
+    .control_panel_label {
+      font-size: 16px;
+      line-height: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    .control_panel_overlay {
       display: none;
     }
-    &:hover .user_avatar_overlay {
+    &:hover .control_panel_overlay {
       position: absolute;
       display: block;
       background: #000000;
@@ -287,7 +328,7 @@ main {
       font-size: 1.25em;
       line-height: 1.5em;
       padding: 10px;
-      margin: -162px 0 0 -2px;
+      margin: -182px 0 0 -2px;
       border: 2px solid;
       border-color: #ffffff;
     }
@@ -313,15 +354,23 @@ main {
 
 /* forms */
 
-.upload_field {
+.form_separated_field {
   display: inline-block;
   align: center;
   width: 400px;
-  margin: 5px;
+  margin: 10px;
   padding: 10px;
   border: 1px solid;
   border-color: $formFileUploadBorder;
   background-color: $formFileUpload;
+  hr {
+    border: 0;
+    margin: 5px auto 12px auto;
+    height: 2px;
+    width: 40%;
+    color: $divider;
+    background-color: $divider;
+  }
 }
 
 /* flash messages */

@@ -29,11 +29,20 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
+  process :fix_exif_rotation
   process :resize_to_fill => [160, 160]
   #
   # def scale(width, height)
   #   # do something
   # end
+
+  def fix_exif_rotation
+    manipulate! do |img|
+      img.auto_orient!
+      img = yield(img) if block_given?
+      img
+    end
+  end
 
   # Create different versions of your uploaded files:
   version :thumb do
