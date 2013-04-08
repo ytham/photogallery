@@ -11,5 +11,17 @@ module UsersHelper
       'default_avatar.jpg'
     end
   end
+
+  def likes?(photo)
+    likes.find_by_photo(photo.id)
+  end
+
+  def like!(photo)
+    likes.create!(photo_id: photo.id)
+  end
+
+  def unlike!(photo)
+    likes.find_by_photo(photo.id).destroy
+  end
   
 end

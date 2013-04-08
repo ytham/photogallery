@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :avatar
 
-  has_many :photos, dependent: :destroy 
+  has_many :photos, dependent: :destroy
+  has_many :likes
 
   mount_uploader :avatar, AvatarUploader
 

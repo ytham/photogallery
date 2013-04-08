@@ -12,6 +12,18 @@ module PhotosHelper
     name_with_extension = name + ".jpg"
   end
 
+  def likes?(photo)
+    likes.find_by_photo(photo.id)
+  end
+
+  def like!(photo)
+    likes.create!(photo_id: photo.id)
+  end
+
+  def unlike!(photo)
+    likes.find_by_photo(photo.id).destroy
+  end
+
   def quicknav_fn
     nav_array = []
     if @photos.count > 5      

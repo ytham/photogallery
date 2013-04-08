@@ -3,6 +3,7 @@ class Photo < ActiveRecord::Base
   mount_uploader :image, ImageUploader
 
   belongs_to :user
+  has_many :likes
 
   validates_presence_of :name
   validates_presence_of :user_id

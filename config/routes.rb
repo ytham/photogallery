@@ -2,6 +2,7 @@ Photogallery::Application.routes.draw do
   resources :photos
   resources :users
   resources :sessions
+  resources :likes
 
   resources :users do
     get 'upload_avatar'

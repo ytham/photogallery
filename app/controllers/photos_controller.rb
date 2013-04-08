@@ -23,8 +23,9 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = Photo.find(params[:id])
     @photos = Photo.all
+    @photo = Photo.find(params[:id])
+    @user_likes = user_likes(@photo.id)
     respond_to do |format|
       format.html
       format.json { render json: @photo }
@@ -34,6 +35,8 @@ class PhotosController < ApplicationController
 
   def index
     @photos = Photo.all
+    @photo = Photo.last
+    @user_likes = user_likes(@photo.id)
     respond_to do |format|
       format.html
       format.json { render json: @photos }
@@ -61,5 +64,18 @@ class PhotosController < ApplicationController
       format.js   { render nothing: true }
     end
   end
-end
 
+  private
+
+    def user_likes(photo_id)
+      likes = Like.find_all_by_photo_id(photo_id)
+      user_array = []
+      if !likes.blank?
+        likes.each do |l|
+          user_array.push(l.user)
+        end
+      end
+      return user_array
+    end
+
+end

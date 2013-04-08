@@ -9,4 +9,12 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 
+  def signed_in_user
+    redirect_to login_path, notice: "Please sign in" unless signed_in?
+  end
+
+  def signed_in?
+    !current_user.nil?
+  end
+
 end

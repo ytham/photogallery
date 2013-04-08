@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @photo_list = Photo.find_all_by_user_id(@user.id)
+    @liked_photos = liked_photos(@user.id)
     respond_to do |format|
       format.html
       format.json { render json: @photos }
@@ -51,5 +52,18 @@ class UsersController < ApplicationController
   def destroy
     # Need to implement
   end
+
+  private
+
+    def liked_photos(user_id)
+      likes_list = Like.find_all_by_user_id(user_id)
+      likes_array = []
+      if !likes_list.blank?
+        likes_list.each do |l|
+          likes_array.push(l.photo)
+        end
+      end
+      return likes_array
+    end
 
 end
