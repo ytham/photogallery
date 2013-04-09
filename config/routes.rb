@@ -1,8 +1,13 @@
 Photogallery::Application.routes.draw do
   resources :photos
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :sessions
-  resources :likes
+  resources :relationships, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
 
   resources :users do
     get 'upload_avatar'
