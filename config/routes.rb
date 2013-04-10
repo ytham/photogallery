@@ -8,6 +8,7 @@ Photogallery::Application.routes.draw do
   resources :sessions
   resources :relationships, only: [:create, :destroy]
   resources :likes, only: [:create, :destroy]
+  resources :comments, only: [:create, :destroy]
 
   resources :users do
     get 'upload_avatar'

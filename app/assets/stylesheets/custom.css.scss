@@ -10,6 +10,9 @@ $darkText: #555555;
 $arrowBackground: #444444;
 $divider: #222222;
 
+$submitted_byText: #999999;
+$commentContentText: #bbbbbb;
+
 $captionBackground: #161616;
 $captionBorder: #222222;
 $captionMainText: #cccccc;
@@ -189,6 +192,11 @@ main {
   height: 100%;
 }
 
+.submitted_by {
+  color: $submitted_byText;
+  margin: 5px;
+}
+
 #mainSection {
   display: block;
   margin: 0px;
@@ -350,6 +358,10 @@ main {
     filter: gray;
     -webkit-filter: grayscale(100%);
   }
+}
+
+.comment_content {
+  color: $commentContentText;
 }
 
 /* forms */

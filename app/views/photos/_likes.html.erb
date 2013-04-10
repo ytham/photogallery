@@ -1,14 +1,15 @@
-    <hr>
-  <% if current_user %>
-    <% if !current_user.likes.find_by_photo_id(@photo.id).blank? %>
-      <%= link_to 'Unlike', { controller: 'likes', action: 'destroy', id: @photo.id }, method: 'delete' %>
-    <% else %>
-      <%= link_to 'Like', { controller: 'likes', action: 'create', id: @photo.id }, method: 'post' %>
+  <div class="likes">
+    <% if current_user %>
+      <% if !current_user.likes.find_by_photo_id(@photo.id).blank? %>
+        <%= render 'unlike' %>
+      <% else %>
+        <%= render 'like' %>
+      <% end %>
     <% end %>
-  <% end %>
-  <% if !@user_likes.blank? %>
-  <br />
-    <% @user_likes.each do |u| %>
-      <%= link_to u.name, u %>  
+    <% if @user_likes.present? %>
+    <br />Liked by: 
+      <% @user_likes.each do |u| %>
+        <%= link_to u.name, u %><% if @user_likes.last != u %>,<% end %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>

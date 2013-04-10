@@ -1,0 +1,9 @@
+      <div class="comments">
+        <% if @photo.comments.present? %>
+          <% @photo.comments.reverse.each do |c| %>
+            <%= image_tag c.user.avatar_url(:thumb) %> <%= link_to c.user.name, c.user %> 
+            (<%= time_ago_in_words(c.created_at) %> ago): 
+            <span class="comment_content"><%= c.content %></span><br />
+          <% end %>
+        <% end %>
+      </div>

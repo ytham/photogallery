@@ -4,12 +4,3 @@
   </div>
   <hr>
 <% end %>
-<% if @photo.user != nil %>
-  <div class="caption_subtext">
-    Submitted by<br />
-    <%= link_to @photo.user do %>
-      <%= image_tag show_avatar_thumb %> 
-      <%= @photo.user.name %>
-    <% end %>
-  </div>
-<% end %>

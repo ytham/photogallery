@@ -1,6 +1,7 @@
 <h1>
   <%= @photo.name %>
 </h1>
+
   <%= render 'navarrows' %>
 
   <% if @photo.image? %>
@@ -9,11 +10,18 @@
     <% end %>
   <% end %>
 
-
+<%= render 'submitted_by' %>
 
   <div class="captionarea">
     <%= render 'caption' %>
+
     <%= render 'likes' %>
+    <br /><br />
+    <% if current_user %>
+      <%= render 'comments' %>
+      <hr>
+      <%= render 'post_comment' %>
+    <% end %>
   </div>
 
   <div class="quicknav">
