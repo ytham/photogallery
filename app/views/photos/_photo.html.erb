@@ -2,26 +2,27 @@
   <%= @photo.name %>
 </h1>
 
-  <%= render 'navarrows' %>
+  <div class="main_section">
+    <%= render 'navarrows' %>
 
-  <% if @photo.image? %>
-    <%= link_to @photo.previous do %>
-      <%= image_tag @photo.image_url, id: "galleryimage" %>
+    <% if @photo.image? %>
+      <%= link_to @photo.previous do %>
+        <%= image_tag @photo.image_url, id: "galleryimage" %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
 <%= render 'submitted_by' %>
 
   <div class="captionarea">
     <%= render 'caption' %>
 
-    <%= render 'likes' %>
-    <br /><br />
+    <%= render 'likes/likes' %>
+    <hr>
     <% if current_user %>
-      <%= render 'comments' %>
-      <hr>
-      <%= render 'post_comment' %>
+      <%= render 'comments/post_comment' %>
     <% end %>
+    <%= render 'comments/comments' %>
   </div>
 
   <div class="quicknav">

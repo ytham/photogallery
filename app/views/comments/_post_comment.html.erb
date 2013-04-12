@@ -1,0 +1,8 @@
+      <div class="comment_form">
+        <%= form_for(current_user.comments.create(user_id: current_user.id, photo_id: @photo.id), remote: true) do |f| %>
+          <%= f.hidden_field :photo_id %>
+          <%= hidden_field_tag "id", @photo.id %>
+          <%= f.text_area :content, class: 'comment_content' %>
+          <%= f.submit "Post Comment" %>
+        <% end %>
+      </div>

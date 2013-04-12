@@ -13,6 +13,9 @@ $divider: #222222;
 $submitted_byText: #999999;
 $commentContentText: #bbbbbb;
 
+$commentField: #2A2A2A;
+$commentFieldBorder: #393939;
+
 $captionBackground: #161616;
 $captionBorder: #222222;
 $captionMainText: #cccccc;
@@ -276,10 +279,12 @@ main {
   margin: 0px 0px 100px 0px;
 }
 
+/* caption area */
+
 .captionarea { 
   display: inline-block;
   margin: 20px;
-  padding: 10px;
+  padding: 15px;
   background: $captionBackground;
   border: 2px solid $captionBorder;
   color: $captionSubText;
@@ -291,6 +296,18 @@ main {
     color: $divider;
     background-color: $divider;
   }
+  input[type="text"], input[type="submit"], textarea {
+    color: #eeeeee;
+    background-color: $commentField;
+    border: 2px solid;
+    border-color: $commentFieldBorder;
+    margin: 0px;
+  }
+  textarea {
+    height: 3em;
+    margin: 0px 5px 6px 5px;
+    padding: 5px;
+  }
 }
 
 .caption_text {
@@ -298,13 +315,17 @@ main {
   font-size: 1.9em;
   font-weight: 100;
   line-height: 1em;
-  margin: 5px 60px 0px 60px;
+  margin: 0px 70px 0px 70px;
   color: $captionMainText;
 }
 
 .links {
   text-align: left;
   display: inline-block;
+}
+
+.comment_content {
+  color: $commentContentText;
 }
 
 /* user view */
@@ -358,10 +379,6 @@ main {
     filter: gray;
     -webkit-filter: grayscale(100%);
   }
-}
-
-.comment_content {
-  color: $commentContentText;
 }
 
 /* forms */

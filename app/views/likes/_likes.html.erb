@@ -1,0 +1,16 @@
+  <div class="likes">
+    <% if current_user %>
+      <% if current_user.likes.where(photo_id: @photo.id).present? %>
+        <%= render 'likes/unlike' %>
+      <% else %>
+        <%= render 'likes/like' %>
+      <% end %>
+    <br />
+    <% end %>
+    <% if @user_likes.present? %>
+    Liked by: 
+      <% @user_likes.each do |u| %>
+        <%= link_to u.user.name, u.user %><% if @user_likes.last.user != u.user %>,<% end %>
+      <% end %>
+    <% end %>
+  </div>

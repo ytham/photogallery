@@ -25,7 +25,8 @@ class PhotosController < ApplicationController
   def show
     @photos = Photo.all
     @photo = Photo.find(params[:id])
-    @user_likes = user_likes(@photo.id)
+    #@user_likes = user_likes(@photo.id)
+    @user_likes = Like.where(photo_id: @photo.id)
     respond_to do |format|
       format.html
       format.json { render json: @photo }
@@ -36,7 +37,8 @@ class PhotosController < ApplicationController
   def index
     @photos = Photo.all
     @photo = Photo.last
-    @user_likes = user_likes(@photo.id)
+    #@user_likes = user_likes(@photo.id)
+    @user_likes = Like.where(photo_id: @photo.id)
     respond_to do |format|
       format.html
       format.json { render json: @photos }
