@@ -16,5 +16,8 @@
     </span>  
   <% end %>
 <% else %>
-  No photos.
+  <br />No photos.
+  <% if current_user == @user %>
+    <%= link_to 'Upload a photo.', upload_path %>
+  <% end %>
 <% end %>

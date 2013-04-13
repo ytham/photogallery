@@ -16,6 +16,13 @@ $commentContentText: #bbbbbb;
 $commentField: #2A2A2A;
 $commentFieldBorder: #393939;
 
+$followButtonText: #eeeeee;
+$followButtonColor: #003355;
+$followButtonBorder: #005588;
+$unfollowButtonText: #cccccc;
+$unfollowButtonColor: #333333;
+$unfollowButtonBorder: #555555;
+
 $captionBackground: #161616;
 $captionBorder: #222222;
 $captionMainText: #cccccc;
@@ -367,6 +374,30 @@ main {
     float: left;
     padding: 0px;
   }
+}
+
+/* follow buttons */
+
+input[type="submit"].follow_button {
+  margin: 5px 0px 5px 0px;
+  padding: 7px;
+  border: 2px solid;
+  border-radius: 5px;
+  font-size: 1.3em;
+  color: $followButtonText;
+  background-color: $followButtonColor;
+  border-color: $followButtonBorder;
+}
+
+input[type="submit"].unfollow_button {
+  margin: 5px 0px 5px 0px;
+  padding: 7px;
+  border: 2px solid;
+  border-radius: 5px;
+  font-size: 1.3em;
+  color: $unfollowButtonText;
+  background-color: $unfollowButtonColor;
+  border-color: $unfollowButtonBorder;
 }
 
 /* quicknav */

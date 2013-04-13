@@ -10,24 +10,7 @@
       <% end %>
   </div>
   <div class="user_info">
-    <h1><%= @user.name %></h1>
-    Following: <span class="followed_users_number">
-      <%= @user.followed_users.count %>
-    </span><br />
-    Followers: <span class="followers_number">
-      <%= @user.followers.count %>
-    </span><br />
-    Photos: <span class="photos_number"><%= @photo_list.count %></span><br />
-    Likes: <span class="likes_number">0</span><br />
-    <% if current_user && current_user != @user %>
-      <div id="follow_form">
-        <% if current_user.following?(@user) %>
-          <%= render 'unfollow' %>
-        <% else %>
-          <%= render 'follow' %>
-        <% end %>
-      </div>
-    <% end %>
+    <%= render 'info' %>
   </div>
 </div>
  

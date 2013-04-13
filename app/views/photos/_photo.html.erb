@@ -18,8 +18,8 @@
     <%= render 'caption' %>
 
     <%= render 'likes/likes' %>
-    <hr>
     <% if current_user %>
+      <hr>
       <%= render 'comments/post_comment' %>
     <% end %>
     <%= render 'comments/comments' %>
