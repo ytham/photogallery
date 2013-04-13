@@ -1,9 +1,11 @@
   <div class="likes">
     <% if current_user %>
-      <% if current_user.likes.where(photo_id: @photo.id).present? %>
-        <%= render 'likes/unlike' %>
-      <% else %>
-        <%= render 'likes/like' %>
+      <% if current_user.likes.present? %>
+        <% if current_user.likes.where(photo_id: @photo.id).present? %>
+          <%= render 'likes/unlike' %>
+        <% else %>
+          <%= render 'likes/like' %>
+        <% end %>
       <% end %>
     <br />
     <% end %>
