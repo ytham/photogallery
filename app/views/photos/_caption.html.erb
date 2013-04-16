@@ -1,6 +1,5 @@
-<% if !@photo.caption.blank? %>
+<% if @photo.caption.present? %>
   <div class="caption_text">
     <%= @photo.caption %>
   </div>
-  <hr>
 <% end %>

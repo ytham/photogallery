@@ -16,10 +16,14 @@
 
   <div class="captionarea">
     <%= render 'caption' %>
-
-    <%= render 'likes/likes' %>
-    <% if current_user %>
+    <% if @photo.likes.present? || current_user %>
       <hr>
+    <% end %>
+    <%= render 'likes/likes' %>
+    <% if @photo.comments.present? || current_user %>
+      <hr>
+    <% end %>
+    <% if current_user %>
       <%= render 'comments/post_comment' %>
     <% end %>
     <%= render 'comments/comments' %>

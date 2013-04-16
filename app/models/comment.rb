@@ -7,4 +7,11 @@ class Comment < ActiveRecord::Base
   validates_presence_of :user_id
   validates_presence_of :photo_id
   validates_presence_of :content
+
+  validates :content, length: { 
+    minimum: 2,
+    maximum: 1024,
+    too_short: "is too short.",
+    too_long: "is more than 1024 characters" 
+  }
 end
