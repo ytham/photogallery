@@ -19,9 +19,9 @@
 
 <br /><br />
 
-<% if !@liked_photos.blank? %>
+<% if @liked_photos.present? %>
   <h2>Liked Photos:</h2>
   <% @liked_photos.reverse.each do |l| %>
-    <%= link_to l do %><%= image_tag l.image_url(:quicknav) %><% end %>
+    <%= link_to l.photo do %><%= image_tag l.photo.image_url(:quicknav) %><% end %>
   <% end %>
 <% end %>

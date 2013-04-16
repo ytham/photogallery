@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :avatar
+  attr_accessor :password
 
   has_many :photos, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -11,7 +12,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  attr_accessor :password
+  before_save :email_to_lowercase
   before_save :encrypt_password
 
   validates_confirmation_of :password
@@ -20,12 +21,16 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, on: :create, message: "must be unique"
 
   def self.authenticate(email, password)
-    user = find_by_email(email)
+    user = find_by_email(email.downcase)
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
       user
     else
       nil
     end
+  end
+
+  def email_to_lowercase
+    email.downcase!
   end
 
   def encrypt_password
