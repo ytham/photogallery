@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416055851) do
+ActiveRecord::Schema.define(:version => 20130416153513) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20130416055851) do
     t.string   "image"
   end
 
+  add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -65,5 +67,7 @@ ActiveRecord::Schema.define(:version => 20130416055851) do
     t.string   "avatar"
     t.boolean  "admin",         :default => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end
