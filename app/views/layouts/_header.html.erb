@@ -1,7 +1,7 @@
 <header>
   <div id="logo">
     <%= link_to root_url do %>
-      <%= image_tag 'logo.png' %>'steeme
+      <%= image_tag 'logo.png' %>'steem
     <% end %>
   </div>
   <ul>
@@ -12,6 +12,7 @@
       <%= link_to user_path(current_user.id) do %><span class="nav_elem"><li><%= current_user.name %></li></span> <% end %>
     <% else %>
       <%= link_to login_path do %><span class="nav_elem"><li>Log In</li></span><% end %>
+      <%= link_to signup_path do %><span class="signup"><li>Sign Up</li></span><% end %>
     <% end %>
   </ul>
 </header>

@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_filter :admin_user_or_current_user, only: :destroy
 
   def new
     @photo = Photo.new
@@ -12,7 +13,7 @@ class PhotosController < ApplicationController
     @user = current_user
     @photo = @user.photos.create(params[:photo])
     if @photo.save
-      redirect_to @photo, notice: "New photo uploaded successfully."
+      redirect_to @photo
     else
       render "new"
 #    respond_to do |format|
@@ -62,12 +63,13 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    @photo = current_user.photos.find(params[:id])
+    #@photo = current_user.photos.find(params[:id])
+    @photo = Photo.find(params[:id])
     @photo.destroy
     respond_to do |format|
       format.html { redirect_to current_user }
       format.json { head :no_content }
-      format.js   { render nothing: true }
+      format.js   
     end
   end
 

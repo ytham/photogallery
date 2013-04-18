@@ -2,7 +2,15 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/  
 
+nextimage = "<%= @photo.previous.image_url %>"
 $(document).ready ->
+  window.setTimeout (->
+    img = $("<img>").attr("src", nextimage).load(->
+    )
+  ), 100
+
+  $("#upload_tabs").tabs()
+
   $(".nav_elem").fadeTo("slow",0.6)
   $(".nav_elem").hover (->
     $(this).fadeTo("fast",1)
@@ -22,8 +30,8 @@ $(document).ready ->
     $(this).fadeTo("slow",0.7)
     
 
-  $(".leftarrow").fadeTo(1000,0.0)
-  $(".rightarrow").fadeTo(1000,0.0) 
+  $(".leftarrow").fadeTo(1000,50.0)
+  $(".rightarrow").fadeTo(1000,50.0) 
 
     
   $(".leftarrow").hover (->

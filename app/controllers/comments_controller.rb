@@ -23,10 +23,4 @@ class CommentsController < ApplicationController
     end
   end
 
-  private
-
-    def admin_user_or_current_user
-      redirect_to(root_path) unless current_user.admin? || current_user
-    end
-
 end

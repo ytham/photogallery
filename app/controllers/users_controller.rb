@@ -48,7 +48,7 @@ class UsersController < ApplicationController
     if @user.update_attributes(params[:user])
       redirect_to @user, notice: "User data updated successfully."
     else
-      render @user, notice: "User data update failed."
+      redirect_to @user, notice: "User data update failed."
     end
   end
   
@@ -59,10 +59,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end
 
     def liked_photos(user_id)
       likes_list = Like.find_all_by_user_id(user_id)

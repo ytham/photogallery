@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
   validates_presence_of :password, on: :create
   validates_presence_of :email
-  validates_uniqueness_of :email, on: :create, message: "must be unique"
+  validates_uniqueness_of :email, on: :create, message: "is already taken."
 
   #validate correct email
   validates :name, length: { in: 5..25 }

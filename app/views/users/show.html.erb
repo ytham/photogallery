@@ -3,7 +3,7 @@
   <div class="user_avatar">
     <%= image_tag show_avatar %>
       <% if current_user == @user %>
-        <div class="control_panel_label">Control Panel</div>
+        <div class="control_panel_label"><%= link_to "Control Panel", "#" %></div>
         <div class="control_panel_overlay">
           <%= render 'control_panel' %>
         </div>
@@ -22,6 +22,8 @@
 <% if @liked_photos.present? %>
   <h2>Liked Photos:</h2>
   <% @liked_photos.reverse.each do |l| %>
-    <%= link_to l.photo do %><%= image_tag l.photo.image_url(:quicknav) %><% end %>
+    <span class="show_all">
+      <%= link_to l.photo do %><%= image_tag l.photo.image_url(:quicknav) %><% end %>
+    </span>
   <% end %>
 <% end %>

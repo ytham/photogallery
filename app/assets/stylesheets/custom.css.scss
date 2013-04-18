@@ -10,6 +10,8 @@ $darkText: #555555;
 $arrowBackground: #444444;
 $divider: #222222;
 
+$signupHeader: #006666;
+
 $submitted_byText: #999999;
 $commentContentText: #bbbbbb;
 
@@ -32,6 +34,7 @@ $formField: #112233;
 $formFieldBorder: #223344;
 $formFileUpload: #001122;
 $formFileUploadBorder: #112233;
+$formUploadTabBackground: #002233;
 
 $successText: #aaccaa;
 $successBorder: #006600;
@@ -72,6 +75,9 @@ a {
 
 ul {
   list-style: none;
+  list-style-type: none;
+  list-style-image: none;
+  margin: 0px;
   li {
     padding: 3px 0;
     margin: 3px 0;
@@ -102,6 +108,7 @@ input[type="text"], input[type="submit"], input[type="password"], textarea {
   color: #ffffff;
   background-color: $formField;
   border: 2px solid;
+  border-radius: 5px;
   border-color: $formFieldBorder;
 }
 
@@ -147,20 +154,21 @@ header {
     list-style: none;
     position: absolute;
     right: 50px;
-    bottom: -14px;
+    bottom: -10px;
+    height: 30px;
     span {
       margin: 0px 3px 0px 3px;
-      height: 20px;
-      background: $borderLine;
       li {
-        display: inline;
+        display: inline-block;
         vertical-align: bottom;
+        height: 20px;
         font-size: 1.7em;
         font-weight: 100;
         letter-spacing: -0.5px;
         line-height: 1;
         padding: 0px 15px 0px 15px;
         margin: 0px 5px 0px 5px;
+        background: $borderLine;
       }
     }
   }
@@ -243,6 +251,11 @@ main {
   }
 }
 
+.main_section {
+  background: #ff0000;
+  overflow: hidden;
+}
+
 .fixed {
   position: fixed;
 }
@@ -307,6 +320,7 @@ main {
     color: #eeeeee;
     background-color: $commentField;
     border: 2px solid;
+    border-radius: 5px;
     border-color: $commentFieldBorder;
     margin: 0px;
   }
@@ -333,7 +347,14 @@ main {
 
 .comment_content {
   color: $commentContentText;
+  .delete_comment {
+    display: none;
+  }
+  &:hover .delete_comment {
+    display: inline;
+  }
 }
+
 
 /* user view */
 
@@ -414,13 +435,47 @@ input[type="submit"].unfollow_button {
 
 /* forms */
 
+#tabs-centre .ui-tabs-nav { 
+    height: 2.35em; 
+    text-align: center; 
+} 
+#tabs-centre .ui-tabs-nav li { 
+    display: inline-block; 
+    float: none; 
+    top: 0px; 
+    margin: 0em; 
+}
+
+#upload_tabs { 
+  display: inline-block; 
+  width: 366px;
+  background-color: $formUploadTabBackground;
+  border: 2px solid;
+  border-radius: 5px;
+  border-color: $formFieldBorder;
+
+  .tab_upload {
+    display: inline-block;
+    width: 130px;
+    height: 1.5em;
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin: 0px 15px 0px 15px;
+    padding: 0.1em 0 0 0;
+    border-top: 2px solid;
+    border-left: 2px solid;
+    border-right: 2px solid;
+    border-color: $formFileUploadBorder;
+    background-color: $formFileUpload;
+  }
+}
+
 .form_separated_field {
-  display: inline-block;
   align: center;
-  width: 400px;
-  margin: 10px;
+  margin: 0;
   padding: 10px;
-  border: 1px solid;
+  height: 60px;
+  border-top: 1px solid;
   border-color: $formFileUploadBorder;
   background-color: $formFileUpload;
   hr {
@@ -431,6 +486,10 @@ input[type="submit"].unfollow_button {
     color: $divider;
     background-color: $divider;
   }
+}
+
+input[type="text"].paste_url_field { 
+    width: 300px;
 }
 
 /* flash messages */
