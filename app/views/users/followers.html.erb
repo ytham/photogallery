@@ -1,0 +1,13 @@
+<h1>
+  <%= @user.name %>
+</h1>
+
+<%= @followers.count %> followers:<br /><br />
+<% @followers.each do |f| %>
+  <div class="show_all">
+    <%= link_to f do %>
+      <%= image_tag show_avatar(f) %><br />
+      <%= f.name %>
+    <% end %>
+  </div>
+<% end %>

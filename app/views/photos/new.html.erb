@@ -6,6 +6,15 @@
 <br />
 
 <% if current_user %>
+  <div class="image_upload_guidelines">
+    <b>Images must conform to the specific guidelines:</b>
+    <ul>
+      <li>Must be your own photo or artwork</li>
+      <li>Must not be of pornographic nature</li>
+      <li>Must not contain profanity</li>
+      <li>Must be one of these formats: .jpg, .jpeg, .gif, .png</li>
+    </ul>
+  </div>
   <%= render 'upload' %>
 <% else %>
   Only members may upload photos.  Please 

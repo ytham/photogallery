@@ -4,6 +4,7 @@
 
 $(document).ready ->
   #$("#upload_tabs").tabs()
+  
 
   $(".nav_elem").fadeTo("slow",0.6)
   $(".nav_elem").hover (->

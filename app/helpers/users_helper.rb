@@ -4,11 +4,19 @@ module UsersHelper
     list = Photos.find_all_by_user_id(user_id)
   end
   
-  def show_avatar
-    if !@user.avatar.blank?
-      @user.avatar_url
+  def show_avatar(u)
+    if u.avatar.present?
+      u.avatar_url
     else
       'default_avatar.jpg'
+    end
+  end
+
+  def show_avatar_thumb(u)
+    if u.avatar.present?
+      u.avatar_url(:thumb)
+    else
+      'default_avatar_thumb.jpg'
     end
   end
 

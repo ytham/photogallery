@@ -10,9 +10,10 @@
     </div>
   <% end %>
 
-  <br />
   <p>
-    <%= f.file_field :avatar %>
+    <div id="upload_field">
+      <%= f.file_field :avatar %>
+    </div>
   </p>
   <%= f.submit "Upload Avatar", name: 'avatar_upload' %>
 <% end %>

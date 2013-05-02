@@ -1,14 +1,22 @@
-    <h1><%= @user.name %></h1>
-    Following: <span class="followed_users_number">
-      <%= @user.followed_users.count %>
-    </span><br />
-    Followers: <span class="followers_number">
-      <%= @user.followers.count %>
-    </span><br />
-    Photos: <span class="photos_number"><%= @photo_list.count %></span><br />
-    Likes: <span class="likes_number"><%= @user.likes.count %></span><br />
-    <% if current_user && current_user != @user %>
-      <div class="follow_link">
-        <%= render 'relationships/follow' %>
-      </div>
-    <% end %>
+<h1><%= @user.name %></h1>
+Following: <span class="followed_users_number">
+  <% if @user.followed_users.count > 0 %>
+    <%= link_to @user.followed_users.count, following_user_path %>
+  <% else %>
+    <%= @user.followed_users.count %>
+  <% end %>
+</span><br />
+Followers: <span class="followers_number">
+  <% if @user.followers.count > 0 %>
+    <%= link_to @user.followers.count, followers_user_path %>
+  <% else %>
+    <%= @user.followed_users.count %>
+  <% end %>
+</span><br />
+Photos: <span class="photos_number"><%= @photo_list.count %></span><br />
+Likes: <span class="likes_number"><%= @user.likes.count %></span><br />
+<% if current_user && current_user != @user %>
+  <div class="follow_link">
+    <%= render 'relationships/follow' %>
+  </div>
+<% end %>

@@ -1,7 +1,7 @@
 <% provide(:title, @user.name) %>
 <div class="user_title">
   <div class="user_avatar">
-    <%= image_tag show_avatar %>
+    <%= image_tag show_avatar(@user) %>
       <% if current_user == @user %>
         <div class="control_panel_label"><%= link_to "Control Panel", "#" %></div>
         <div class="control_panel_overlay">

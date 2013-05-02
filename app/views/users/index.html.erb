@@ -4,7 +4,7 @@
 
 <% @users.each do |u| %>
   <div class="show_all">
-    <%= u.id %>: <%= link_to u do %><%= image_tag u.avatar_url(:thumb) %><%= u.name %><% end %><br>
+    <%= u.id %>: <%= link_to u do %><%= image_tag show_avatar_thumb(u) %><%= u.name %><% end %><br>
     <% if !current_user?(u) %>
       <small>(<%= link_to "delete", u, method: :delete, data: { confirm: "Are you sure?" } %>)</small>
     <% end %>

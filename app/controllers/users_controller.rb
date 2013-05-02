@@ -76,6 +76,16 @@ class UsersController < ApplicationController
   def signedup
   end
 
+  def following
+    @user = User.find(params[:id])
+    @following = @user.followed_users.all
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @followers = @user.followers.all
+  end
+
   private
 
     def liked_photos(user_id)

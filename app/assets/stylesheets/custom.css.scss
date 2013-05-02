@@ -30,6 +30,9 @@ $captionBorder: #222222;
 $captionMainText: #cccccc;
 $captionSubText: #777777;
 
+$uploadGuidelines: #2A2A2A;
+$uploadGuidelinesBorder: #393939;
+
 $formField: #112233;
 $formFieldBorder: #223344;
 $formFileUpload: #001122;
@@ -140,6 +143,9 @@ textarea {
   }
   img {
     margin: -30px 0 0 0;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: #ffffff;
   }
 }
 
@@ -496,6 +502,24 @@ input[type="submit"].unfollow_button {
 
 input[type="text"].paste_url_field { 
     width: 300px;
+}
+
+.image_upload_guidelines {
+  display: inline-block;
+  width: 346px;
+  margin: 0px 0px 24px 0px;
+  padding: 10px 5px 10px 20px;
+  text-align: left;
+  //line-height: 1em;
+  border: 2px solid;
+  border-radius: 5px;
+  border-color: $uploadGuidelinesBorder;
+  background-color: $uploadGuidelines;
+  li {
+    line-height: 0.6em;
+    list-style-type: disc;
+    margin-left: 1.3em;
+  }
 }
 
 /* flash messages */
