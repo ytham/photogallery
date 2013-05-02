@@ -6,7 +6,7 @@
       <%= link_to p do %>
         <%= image_tag p.image_url(:thumb) %> 
       <% end %>
-      <% if current_user.admin? %>
+      <% if current_user && current_user.admin? %>
         <%= link_to p, method: :delete, data: { confirm: "Delete this photo?" }, remote: true do %>
             <div class="delete_overlay">x</div>
         <% end %>
