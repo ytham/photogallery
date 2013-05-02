@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   #validate correct email
   validates :name, length: { in: 5..25 }
-  validates :password, length: { in: 6..96 }
+  validates :password, length: { in: 6..96 }, unless: :update
 
   def self.authenticate(email, password)
     user = find_by_email(email.downcase)

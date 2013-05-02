@@ -1,0 +1,9 @@
+<script type="text/javascript">
+var nextimage = "<%= @photo.previous.image_url %>";
+$(document).ready(function() {
+  return window.setTimeout((function() {
+    var img;
+    return img = $("<img>").attr("src", nextimage).load(function() {});
+  }), 100);
+});
+</script>

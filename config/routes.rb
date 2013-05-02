@@ -25,6 +25,7 @@ Photogallery::Application.routes.draw do
   match '/about', to: 'static_pages#about'
   match '/links', to: 'static_pages#links'
   match '/contact', to: 'static_pages#contact'
+  match '/signedup', to: 'users#signedup'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

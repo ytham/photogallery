@@ -1,3 +1,5 @@
+require 'will_paginate/array'
+
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :edit, :update, :destroy]
   before_filter :admin_user, only: [:index, :destroy]
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.create(params[:user])
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, notice: "New user created successfully."
+      redirect_to signedup_path
     else
       render "new"
     end
@@ -23,8 +25,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @photo_list = Photo.where(user_id: @user.id)
-    @liked_photos = @user.likes.all #liked_photos(@user.id)
+    @users = @user.photos.paginate page: params[:user_photos_page], per_page: 10
+    #@photo_list = Photo.where(user_id: @user.id)
+    @photo_list = @user.photos.paginate page: params[:user_photos_page], per_page: 10
+    @liked_photos = @user.likes.last(20).map(&:photo)
+    #@liked_photos = @liked.paginate page: params[:liked_photos_page]
     respond_to do |format|
       format.html
       format.json { render json: @photos }
@@ -45,10 +50,20 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update_attributes(params[:user])
-      redirect_to @user, notice: "User data updated successfully."
+    if params[:avatar_upload]
+      if @user.update_attribute(:avatar, params[:user][:avatar])
+        redirect_to @user, notice: "Avatar uploaded successfully."
+      else
+        redirect_to @user, notice: "Avatar upload failed."
+        Rails.logger.info(@User.errors.messages.inspect)
+      end
     else
-      redirect_to @user, notice: "User data update failed."
+      if @user.update_attributes(params[:user])
+        redirect_to @user, notice: "User data updated successfully."
+      else
+        redirect_to @user, notice: "User data update failed."
+        Rails.logger.info(@user.errors.messages.inspect)
+      end
     end
   end
   
@@ -56,6 +71,9 @@ class UsersController < ApplicationController
     User.find(params[:id]).destroy
     flash[:notice] = "User deleted."
     redirect_to users_path
+  end
+
+  def signedup
   end
 
   private

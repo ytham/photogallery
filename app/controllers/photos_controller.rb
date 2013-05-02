@@ -12,6 +12,10 @@ class PhotosController < ApplicationController
   def create
     @user = current_user
     @photo = @user.photos.create(params[:photo])
+    if params[:photo][:image] && params[:photo][:remote_image_url]
+      @photo.remote_image_url = nil
+      logger.debug "@@@@ @ Create action"
+    end
     if @photo.save
       redirect_to @photo
     else
@@ -52,7 +56,8 @@ class PhotosController < ApplicationController
   end
 
   def all
-    @photos = Photo.all
+    #@photos = Photo.all
+    @photos = Photo.paginate page: params[:page], order: 'created_at DESC'
     respond_to do |format|
       format.html
     end

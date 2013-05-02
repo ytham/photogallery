@@ -13,6 +13,7 @@
       </span>
     </span>  
   <% end %>
+  <%= will_paginate(@photos_list, param_name: 'user_photos_page') %>
 <% else %>
   <br />No photos.
   <% if current_user == @user %>

@@ -16,6 +16,7 @@ end
 gem 'bootstrap-sass'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'will_paginate'
 
 # Gems used only for assets and not required
 # in production environments by default.

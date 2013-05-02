@@ -252,8 +252,7 @@ main {
 }
 
 .main_section {
-  background: #ff0000;
-  overflow: hidden;
+  background: #000000;
 }
 
 .fixed {
@@ -262,40 +261,46 @@ main {
 
 .leftfixed { 
   position: fixed;
+  height: 100%;
   left: 0px;
+  top: 80px;
 }
 
 .rightfixed {
   position: fixed;
+  height: 100%;
   right: 0px;
+  top: 80px;
 }
 
 .leftarrow {
-  width: 80px;
-  height: 150px;
+  width: 200px;
+  height: 100%;
   font-size: 8em;
   font-weight: 100;
   line-height: 1;
+  text-align: left;
   position: absolute;
-  background: $arrowBackground;
+  //background: $arrowBackground;
   //opacity: 0.5;
-  padding-top: 15px;
-  margin: 0px 0px 100px 0px;
+  padding: 110px 0px 0px 10px;
+  margin: 0px 0px 0px 0px;
 }
 
 .rightarrow {
-  width: 80px;
-  height: 150px;
+  width: 200px;
+  height: 100%;
   font-size: 8em;
   font-weight: 100;
   line-height: 1;
+  text-align: right;
   vertical-align: middle;
   position: absolute;
   right: 0px;
   top: 0px;
-  background: $arrowBackground;
+  //background: $arrowBackground;
   //opacity: 0.5;
-  padding-top: 15px;
+  padding: 110px 0px 0px 10px;
   margin: 0px 0px 100px 0px;
 }
 
@@ -446,10 +451,11 @@ input[type="submit"].unfollow_button {
     margin: 0em; 
 }
 
-#upload_tabs { 
+#upload_field { 
   display: inline-block; 
   width: 366px;
-  background-color: $formUploadTabBackground;
+  margin: 0px 0px 13px 0px;
+  background-color: $formField;
   border: 2px solid;
   border-radius: 5px;
   border-color: $formFieldBorder;

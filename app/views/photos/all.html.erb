@@ -1,6 +1,6 @@
 <%= provide(:title, 'All Photos') %>
 
-<% @photos.reverse.each do |p| %>
+<% @photos.each do |p| %>
   <span class="<%= dom_id(p) %>">
     <span class="show_all">
       <%= link_to p do %>
@@ -15,3 +15,5 @@
     </span>
   </span>
 <% end %>
+
+<%= will_paginate @photos %>

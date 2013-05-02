@@ -11,9 +11,19 @@
   <% end %>
 
   <p>
-    <%= f.label "Upload Photo" %>
-    <div id="upload_field">
+    <div id="upload_tabs">
+      <ul>
+        <li class="tab_upload"><a href="#upload_photo">Upload Photo</a></li>
+        <li class="tab_upload"><a href="#paste_url">Paste URL</a></li>
+      </ul>
+      <div id="upload_photo" class="form_separated_field">
+        <br />
         <%= f.file_field :image, class: "upload_image_field" %>
+      </div>
+      <div id="paste_url" class="form_separated_field">
+        <%= f.label :remote_image_url, 'image URL' %>
+        <%= f.text_field :remote_image_url, class: "paste_url_field" %>
+      </div>
     </div>
   </p>
   <p>

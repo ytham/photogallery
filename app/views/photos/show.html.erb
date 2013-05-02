@@ -1,2 +1,6 @@
 <% provide(:title, make_title(@photo.name)) %>
+<% content_for :next_image do %>
+  <%= render 'next_image_script' %>
+<% end %>
+
 <%= render 'photo' %>
