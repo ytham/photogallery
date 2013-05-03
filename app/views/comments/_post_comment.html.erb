@@ -3,6 +3,6 @@
           <%= f.hidden_field :photo_id %>
           <%= hidden_field_tag "id", @photo.id %>
           <%= f.text_area :content, class: 'comment_content' %>
-          <%= f.submit "Post Comment" %>
+          <%= f.submit "Post Comment", disable_with: "Posting..." %>
         <% end %>
       </div>

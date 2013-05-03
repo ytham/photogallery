@@ -10,7 +10,7 @@ Followers: <span class="followers_number">
   <% if @user.followers.count > 0 %>
     <%= link_to @user.followers.count, followers_user_path %>
   <% else %>
-    <%= @user.followed_users.count %>
+    <%= @user.followers.count %>
   <% end %>
 </span><br />
 Photos: <span class="photos_number"><%= @photo_list.count %></span><br />
