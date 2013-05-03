@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, on: :create, message: "is already taken."
 
   #validate correct email
-  validates :name, length: { in: 5..25 }
+  validates :name, length: { in: 3..25 }
   validates :password, length: { in: 6..96 }, unless: :update
 
   def self.authenticate(email, password)
