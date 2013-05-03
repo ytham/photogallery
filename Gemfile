@@ -13,7 +13,10 @@ group :production do
   gem 'pg'
 end
 
+gem 'aws-sdk'
 gem 'bootstrap-sass'
+
+gem 'paperclip'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'will_paginate'
