@@ -1,0 +1,6 @@
+# Amazon S3 environment variables for local development
+development:
+  AWS_BUCKET: 'yujiang-norcal'
+  AWS_ACCESS_KEY_ID: 'AKIAI3KRPLD4OW33V7RA'
+  AWS_SECRET_ACCESS_KEY: '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'
+
