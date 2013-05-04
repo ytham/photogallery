@@ -452,6 +452,7 @@ input[type="submit"].unfollow_button {
   margin: 5px;
   }
   .grayscale {
+    filter: url(/assets/filters.svg#grayscale);
     filter: gray;
     -webkit-filter: grayscale(100%);
   }
