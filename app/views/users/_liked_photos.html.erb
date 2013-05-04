@@ -2,7 +2,7 @@
   <h2>Liked Photos:</h2>
   <% @liked_photos.reverse.each do |l| %>
     <span class="show_all">
-      <%= link_to l do %><%= image_tag l.image_url(:quicknav) %><% end %>
+      <%= link_to l do %><%= image_tag l.image.url(:quicknav) %><% end %>
     </span>
   <% end %>
 <% end %>
