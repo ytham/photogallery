@@ -3,12 +3,12 @@
     <% if p != @photo %>
       <span class="quicknav_image">
         <%= link_to p do %>
-          <%= image_tag p.image_url(:quicknav) %> 
+          <%= image_tag p.image.url(:quicknav) %> 
         <% end %>
       </span>
     <% else %>
       <span class="grayscale">
-        <%= image_tag p.image_url(:quicknav) %>
+        <%= image_tag p.image.url(:quicknav) %>
       </span>
     <% end %>    
     </span>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416153513) do
+ActiveRecord::Schema.define(:version => 20130503161352) do
 
   create_table "comments", :force => true do |t|
     t.integer  "user_id"
@@ -38,10 +38,13 @@ ActiveRecord::Schema.define(:version => 20130416153513) do
   create_table "photos", :force => true do |t|
     t.string   "name"
     t.text     "caption"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "user_id"
-    t.string   "image"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "photos", ["user_id"], :name => "index_photos_on_user_id"
@@ -58,14 +61,17 @@ ActiveRecord::Schema.define(:version => 20130416153513) do
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
 
   create_table "users", :force => true do |t|
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "name"
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
-    t.string   "avatar"
-    t.boolean  "admin",         :default => false
+    t.boolean  "admin",               :default => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

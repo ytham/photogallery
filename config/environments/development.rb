@@ -1,12 +1,15 @@
 Photogallery::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  # Initialize locals in development
+  PAPERCLIP_CONFIG = YAML.load_file("#{::Rails.root}/config/paperclip_locals.yml")[::Rails.env]
+
   config.paperclip_defaults = {
     storage: :s3,
     s3_credentials: {
-      bucket: ENV['AWS_BUCKET'],
-      access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-      secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+      bucket: PAPERCLIP_CONFIG['AWS_BUCKET'],
+      access_key_id: PAPERCLIP_CONFIG['AWS_ACCESS_KEY_ID'],
+      secret_access_key: PAPERCLIP_CONFIG['AWS_SECRET_ACCESS_KEY']
     }
   }
 
