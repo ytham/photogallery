@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :reverse_relationships, foreign_key: "followed_id", class_name: "Relationship", dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
-  mount_uploader :avatar, AvatarUploader
+  #mount_uploader :avatar, AvatarUploader
 
   before_save :email_to_lowercase
   before_save :encrypt_password
@@ -24,6 +24,11 @@ class User < ActiveRecord::Base
   validates :password, length: { in: 6..96 }, unless: :update
 
   validates_format_of :email, :with => /^(|(([A-Za-z0-9]+_+)|([A-Za-z0-9]+\-+)|([A-Za-z0-9]+\.+)|([A-Za-z0-9]+\++))*[A-Za-z0-9]+@((\w+\-+)|(\w+\.))*\w{1,63}\.[a-zA-Z]{2,6})$/i
+
+  has_attached_file :avatar, styles: {
+    thumb: '24x24#',
+    regular: '160x160#'
+  }
 
   def self.authenticate(email, password)
     user = find_by_email(email.downcase)

@@ -6,7 +6,7 @@ module UsersHelper
   
   def show_avatar(u)
     if u.avatar.present?
-      u.avatar_url
+      u.avatar.url(:regular)
     else
       'default_avatar.jpg'
     end
@@ -14,7 +14,7 @@ module UsersHelper
 
   def show_avatar_thumb(u)
     if u.avatar.present?
-      u.avatar_url(:thumb)
+      u.avatar.url(:thumb)
     else
       'default_avatar_thumb.jpg'
     end

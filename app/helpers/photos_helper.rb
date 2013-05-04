@@ -1,5 +1,8 @@
 module PhotosHelper
 
+  def show_full_size_photo(p)
+  end
+
   def remove_underscores(name)
     no_underscores = name.gsub("_", " ")
   end
@@ -51,12 +54,4 @@ module PhotosHelper
     #nav_array.order("id desc")
   end
   
-  def show_avatar_thumb
-    if !@photo.user.avatar.blank?
-      @photo.user.avatar_url(:thumb)
-    else
-      'default_avatar_thumb.jpg'
-    end
-  end
-
 end

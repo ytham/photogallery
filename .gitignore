@@ -24,3 +24,5 @@ todo
 # Ignore user uploads
 /public/uploads
 
+# Ignore local development environment variables
+/config/paperclip_locals.yml

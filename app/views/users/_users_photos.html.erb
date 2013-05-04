@@ -3,7 +3,7 @@
     <span class="<%= dom_id(p) %>">
       <span class="show_all">
         <%= link_to p do %>
-          <%= image_tag p.image_url(:thumb) %>
+          <%= image_tag p.image.url(:thumb) %>
         <% end %>
         <% if current_user == @user %>
           <%= link_to p, method: :delete, class: 'delete_post', data: { confirm: "Delete photo?" }, remote: true do %>

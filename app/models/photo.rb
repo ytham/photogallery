@@ -1,6 +1,6 @@
 class Photo < ActiveRecord::Base
   attr_accessible :caption, :name, :user_id, :image #, :remote_image_url
-  mount_uploader :image, ImageUploader
+  #mount_uploader :image, ImageUploader
   #before_validation :upload_and_remote
 
   belongs_to :user
@@ -9,7 +9,13 @@ class Photo < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :user_id
-  validates_presence_of :image, unless: :remote_image_url
+  validates_presence_of :image #, unless: :remote_image_url
+
+  has_attached_file :image, styles: {
+    quicknav: '64x64#',
+    thumb: '160x160#',
+    full_size: '1600x1200>'
+  }
 
   def self.per_page
     30

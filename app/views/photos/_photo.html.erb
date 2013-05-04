@@ -7,7 +7,7 @@
 
     <% if @photo.image? %>
       <%= link_to @photo.previous do %>
-        <%= image_tag @photo.image_url, id: "galleryimage" %>
+        <%= image_tag @photo.image.url(:full_size), id: "galleryimage" %>
       <% end %>
     <% end %>
   </div>
