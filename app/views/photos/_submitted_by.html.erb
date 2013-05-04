@@ -5,5 +5,6 @@
       <%= image_tag show_avatar_thumb(@photo.user) %> 
       <%= @photo.user.name %>
     <% end %>
+    <%= time_ago_in_words(@photo.created_at) %> ago
   </div>
 <% end %>
