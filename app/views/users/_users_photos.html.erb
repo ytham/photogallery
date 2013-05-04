@@ -1,5 +1,5 @@
 <% if !@photo_list.blank? %>
-  <% @photo_list.reverse.each do |p| %>
+  <% @photo_list.each do |p| %>
     <span class="<%= dom_id(p) %>">
       <span class="show_all">
         <%= link_to p do %>

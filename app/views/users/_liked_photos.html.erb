@@ -1,6 +1,6 @@
 <% if @liked_photos.present? %>
   <h2>Liked Photos:</h2>
-  <% @liked_photos.reverse.each do |l| %>
+  <% @liked_photos.each do |l| %>
     <span class="show_all">
       <%= link_to l do %><%= image_tag l.image.url(:quicknav) %><% end %>
     </span>
