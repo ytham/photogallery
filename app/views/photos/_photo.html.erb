@@ -2,6 +2,8 @@
   <%= @photo.name %>
 </h1>
 
+<%= render 'submitted_by' %>
+
   <div class="main_section">
     <%= render 'navarrows' %>
 
@@ -11,8 +13,6 @@
       <% end %>
     <% end %>
   </div>
-
-<%= render 'submitted_by' %>
 
   <div class="captionarea">
     <%= render 'caption' %>
