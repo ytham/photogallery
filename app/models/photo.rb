@@ -8,6 +8,7 @@ class Photo < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   validates_presence_of :name
+  validates_presence_of :caption
   validates_presence_of :user_id
   validates_presence_of :image #, unless: :remote_image_url
 
